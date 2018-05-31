@@ -6,7 +6,21 @@
 <h1> Rod's Robot</h1>
 
 stuff
+<script src="/socket.io/socket.io.js"></script>
+<script>
+var socket = io();
 
+socket.on('connect',() => {
+  console.log('connected to server')
+  socket.emit('createEmail',{ to:'somebody',text:'anybody'})
+})
+socket.on('disconnect',() => {console.log('dissconnected')})
+socket.on('newEmail',(newEmail)=>{
+  console.log(newEmail)
+})
+
+
+</script>
 
 </body>
 </html>
