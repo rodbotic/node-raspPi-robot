@@ -23,8 +23,12 @@ io.on('connection',(socket) => {
   }) 
 
  socket.on('disconnect',()=>{console.log('disconnected') })
- socket.on('createEmail',(data)=>{console.log('email recieved:'+data.text) })
-
+ socket.on('message',(data)=>{
+	console.log('recieved:'+data) 
+	//io.emit('clientMessage',data)
+	socket.broadcast.emit('clientMessage',data)
+  })
+ 
 })
 
 
