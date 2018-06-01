@@ -2,6 +2,9 @@ const express = require('express')
 const http = require('http')
 const socketIO = require('socket.io')
 
+//var spawn = require('child_process').spawn()
+
+
 const app = express()
 var server = http.createServer(app)
 var io = socketIO(server)
@@ -34,3 +37,8 @@ io.on('connection',(socket) => {
 
 server.listen(3000,()=>{ console.log('Server is running on port 3000')});
 
+//*/**************************
+//create camera spawn
+//**********************
+
+//var  camera = spawn('node', ['/node_modules/raspberry-pi-mjpeg-server/raspberry-pi-mjpeg-server.js'],{detached:true, stdio:'ignore'})
